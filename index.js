@@ -4,16 +4,21 @@
 // 4.spin
 // 5.check if the user won
 
-const prompt = require('prompt-sync')()
+const prompt  = require('prompt-sync')();
 
 const deposit = () =>{
-    const depositAmount = prompt('Enter an amount of money you want to deposit: $')
-    const numberDepositAmount = parseFloat(depositAmount);
+    while(true){
 
-    if(isNaN(numberDepositAmount) || numberDepositAmount <= 0 ){
-        console.log("insufficient input. Please try again")
+        const depositAmount = prompt('Please enter an amount to deposit: $')
+        const numberDepositAmount = parseFloat(depositAmount)
+        console.log(`Your balance is $${numberDepositAmount}`)
+        
+        if(isNaN(numberDepositAmount) || numberDepositAmount <= 0){
+            console.log(`Please enter a valid amount, try again: $`)
+        }else{
+            return numberDepositAmount
+        }
     }
 }
 
-
-deposit();
+const depositAmount = deposit();
