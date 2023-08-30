@@ -16,7 +16,7 @@ const deposit = () =>{
     }
 }
 
-const depositAmount = deposit();
+let balance = deposit();
 
 // 2. determine #of lines to bet on
 const getLines = () =>{
@@ -35,5 +35,18 @@ const getLines = () =>{
 
 const NumberOfLines = getLines();
 // 3. collect bet amount
+const getBet = (balance, lines) =>{
+    const bet = prompt('Enter bet per line: $');
+    const numberBet = parseFloat(bet);
+
+    if(isNaN(numberBet) || numberBet <= 0 || numberBet > (balance / lines)){
+        console.log('invalid bet amount, try again: ')
+    }else{
+        return numberBet
+    }
+}
+
+let bet = getBet(balance,NumberOfLines);
+
 // 4.spin
 // 5.check if the user won
