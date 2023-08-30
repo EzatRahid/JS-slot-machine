@@ -2,6 +2,25 @@
 
 const prompt  = require('prompt-sync')();
 
+
+const ROWS = 3;
+const COLS = 3;
+
+const SYMBOLS_COUNT = {
+    'A':2,
+    'B':4,
+    'C':6,
+    'D':8
+}
+const SYMBOLS_VALUES = {
+    'A':5,
+    'B':4,
+    'C':3,
+    'D':2 
+}
+
+console.log(SYMBOLS_COUNT.A)
+
 const deposit = () =>{
     while(true){
         const depositAmount = prompt('Please enter an amount to deposit: $')
@@ -52,4 +71,12 @@ const getBet = (balance, lines) =>{
 let bet = getBet(balance,NumberOfLines);
 
 // 4.spin
+
+const spin  = () =>{
+    const symbols = [];
+    for(const [symbol,count] of Object.entries(SYMBOLS_COUNT)){
+        
+    }
+}
+
 // 5.check if the user won
