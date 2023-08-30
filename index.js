@@ -19,64 +19,70 @@ const SYMBOLS_VALUES = {
     'D':2 
 }
 
-console.log(SYMBOLS_COUNT.A)
 
-const deposit = () =>{
-    while(true){
-        const depositAmount = prompt('Please enter an amount to deposit: $')
-        const numberDepositAmount = parseFloat(depositAmount)
-        console.log(`Your balance is $${numberDepositAmount}`)
+
+// const deposit = () =>{
+//     while(true){
+//         const depositAmount = prompt('Please enter an amount to deposit: $')
+//         const numberDepositAmount = parseFloat(depositAmount)
+//         console.log(`Your balance is $${numberDepositAmount}`)
         
-        if(isNaN(numberDepositAmount) || numberDepositAmount <= 0){
-            console.log(`Please enter a valid amount, try again: $`)
-        }else{
-            return numberDepositAmount
-        }
-    }
-}
+//         if(isNaN(numberDepositAmount) || numberDepositAmount <= 0){
+//             console.log(`Please enter a valid amount, try again: $`)
+//         }else{
+//             return numberDepositAmount
+//         }
+//     }
+// }
 
-let balance = deposit();
+// let balance = deposit();
 
-// 2. determine #of lines to bet on
-const getLines = () =>{
-    while(true){
+// // 2. determine #of lines to bet on
+// const getLines = () =>{
+//     while(true){
 
-        const lines = prompt('Enter number of lines you would like to bet on: ')
-        const NumberOfLines = parseFloat(lines)
+//         const lines = prompt('Enter number of lines you would like to bet on: ')
+//         const NumberOfLines = parseFloat(lines)
         
-        if(isNaN(NumberOfLines) || NumberOfLines <= 0 || NumberOfLines > 3 ){
-            console.log('invalid line amount, try again: ')
-        }else{
-            return NumberOfLines
-        }
-    }
-}
+//         if(isNaN(NumberOfLines) || NumberOfLines <= 0 || NumberOfLines > 3 ){
+//             console.log('invalid line amount, try again: ')
+//         }else{
+//             return NumberOfLines
+//         }
+//     }
+// }
 
-const NumberOfLines = getLines();
-// 3. collect bet amount
-const getBet = (balance, lines) =>{
-    while(true){
+// const NumberOfLines = getLines();
+// // 3. collect bet amount
+// const getBet = (balance, lines) =>{
+//     while(true){
 
-        const bet = prompt('Enter bet per line: $');
-        const numberBet = parseFloat(bet);
+//         const bet = prompt('Enter bet per line: $');
+//         const numberBet = parseFloat(bet);
         
-        if(isNaN(numberBet) || numberBet <= 0 || numberBet > (balance / lines)){
-            console.log('invalid bet amount, try again: ')
-        }else{
-            return numberBet
-        }
-    }
-}
+//         if(isNaN(numberBet) || numberBet <= 0 || numberBet > (balance / lines)){
+//             console.log('invalid bet amount, try again: ')
+//         }else{
+//             return numberBet
+//         }
+//     }
+// }
 
-let bet = getBet(balance,NumberOfLines);
+// let bet = getBet(balance,NumberOfLines);
 
 // 4.spin
 
-const spin  = () =>{
-    const symbols = [];
+const spin = () =>{
+    const symbols = []
     for(const [symbol,count] of Object.entries(SYMBOLS_COUNT)){
-        
+        for(let i = 0; i < count; i++){
+            symbols.push(symbol)
+        }
     }
+    console.log(symbols)
+   
 }
+
+spin();
 
 // 5.check if the user won
