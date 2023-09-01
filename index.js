@@ -114,5 +114,14 @@ console.log(reels)
 console.log(rows)
 
 const printRows = (rows) =>{
-    
+    for(const row of rows){
+        let rowString = ''
+        for(const [i,symbol] of rows.entries()){
+            rowString += symbol
+            if(i !=rows.length -1){
+                rowString += " | "
+            }
+        }
+        console.log(rowString)
+    }
 }
